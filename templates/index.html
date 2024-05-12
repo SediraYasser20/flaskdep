@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PL Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add the following style tags within the <head> tag -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .jumbotron {
+            background-color: #007bff;
+            color: #fff;
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            border-radius: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 8px;
+            width: 100%;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        input[type="number"]:focus {
+            border-color: #007bff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #28a745; /* Dark green */
+            border-color: #28a745; /* Dark green */
+        }
+
+        .btn-primary:hover {
+            background-color: #218838; /* Darker green */
+            border-color: #1e7e34; /* Darker green */
+        }
+
+        /* Hide prediction result initially */
+        #predictionResult {
+            display: none;
+            border: 2px solid #28a745; /* Dark green */
+            padding: 15px; /* Padding around the content */
+            text-align: center; /* Center align text */
+            font-weight: bold; /* Bold font weight */
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-5 text-center">PL Prediction</h1>
+            <p class="lead text-center">Predict soil parameters with precision.</p>
+        </div>
+        <div id="predictionResult"></div>
+
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="depth">Depth (m):</label>
+                <input type="number" class="form-control" id="depth" name="depth" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="c">C (bars):</label>
+                <input type="number" class="form-control" id="c" name="c" step="0.001" required>
+            </div>
+            <div class="form-group">
+                <label for="phi">Φ (°):</label>
+                <input type="number" class="form-control" id="phi" name="phi" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="gamma">ɣ (t/m3):</label>
+                <input type="number" class="form-control" id="gamma" name="gamma" step="0.01" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+            <button id="phase2Button" class="btn btn-success btn-block">Phase 2</button>
+        </form>
+
+        <!-- Prediction result container -->
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="static/script.js"></script>
+</body>
+</html>

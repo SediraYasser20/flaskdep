@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>PL Prediction Phase 2</title>
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .jumbotron {
+            background-color: #007bff;
+            color: #fff;
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            border-radius: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 8px;
+            width: 100%;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        input[type="number"]:focus {
+            border-color: #007bff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #28a745; /* Dark green */
+            border-color: #28a745; /* Dark green */
+        }
+
+        .btn-primary:hover {
+            background-color: #218838; /* Darker green */
+            border-color: #1e7e34; /* Darker green */
+        }
+
+        /* Center the Go Back link */
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>PL Prediction Phase 2</h1>
+            <div class="values">
+                <p><strong>Depth (m):</strong> {{ depth }}</p>
+                <p><strong>C (bars):</strong> {{ c }}</p>
+                <p><strong>Φ (°):</strong> {{ phi }}</p>
+                <p><strong>ɣ (t/m3):</strong> {{ gamma }}</p>
+                <p><strong>Predicted PL:</strong> {{ pl_prediction }} bar</p>
+            </div>
+        </div>
+        <div id="results"></div>
+
+        <form id="calculationForm">
+            <div class="form-group">
+                <label for="B">B:</label>
+                <input type="number" class="form-control" id="B" name="B" step="0.001" required>
+            </div>
+            <div class="form-group">
+                <label for="D">D:</label>
+                <input type="number" class="form-control" id="D" name="D" step="0.001" required>
+            </div>
+            <div class="form-group">
+                <label for="Kp">Kp:</label>
+                <input type="number" class="form-control" id="Kp" name="Kp" step="0.001" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate All</button>
+        </form>
+
+        <!-- Container for Q0 calculation result -->
+
+        <a href="javascript:history.go(-1)">Go Back</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript for Q0 calculation -->
+    <script src="static/phase2_script.js"></script>
+    
+</body>
+</html>
